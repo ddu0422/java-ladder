@@ -17,10 +17,6 @@ public class OutputView {
         emptyLine();
     }
 
-    private static void emptyLine() {
-        System.out.println();
-    }
-
     public static void outputLadder(Ladder ladder) {
         for (Line line : ladder.getLines()) {
             System.out.println(line);
@@ -40,7 +36,7 @@ public class OutputView {
             System.out.println(result.get(name));
             return;
         }
-        if (name.equals("all")) {
+        if (name.equals(Participant.ALL_PLAYER)) {
             outputResultAll(result);
             return;
         }
@@ -51,5 +47,9 @@ public class OutputView {
         for (Map.Entry<String, Result> resultEntry : result.entrySet()) {
             System.out.println(resultEntry.getKey() + " : " + resultEntry.getValue());
         }
+    }
+
+    private static void emptyLine() {
+        System.out.println();
     }
 }

@@ -5,8 +5,8 @@ import ladder.domain.ladder.Direction;
 import java.util.Objects;
 
 public class Participant {
+    public static final String ALL_PLAYER = "all";
     private static final String NAME_LENGTH_ERROR = "참가자 이름은 5자 이하여야합니다.";
-    private static final String INVALID_NAME = "all";
     private static final String INVALID_NAME_ERROR = "참가자 이름은 all 이 될 수 없습니다.";
     private static final int NAME_LENGTH_LIMIT = 5;
 
@@ -27,7 +27,7 @@ public class Participant {
     }
 
     private void checkForbidName(String name) {
-        if (name.toLowerCase().equals(INVALID_NAME)) {
+        if (name.toLowerCase().equals(ALL_PLAYER)) {
             throw new InvalidParticipantException(INVALID_NAME_ERROR);
         }
     }
