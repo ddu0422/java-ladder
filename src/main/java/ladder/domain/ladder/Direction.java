@@ -29,15 +29,15 @@ public class Direction {
         return new Direction(false, hasRight);
     }
 
+    public static Direction of(boolean hasLeft, boolean hasRight) {
+        return new Direction(hasLeft, hasRight);
+    }
+
     public Direction next(boolean hasNext) {
         if (hasRight) {
             return of(true, false);
         }
         return of(false, hasNext);
-    }
-
-    public static Direction of(boolean hasLeft, boolean hasRight) {
-        return new Direction(hasLeft, hasRight);
     }
 
     public Direction last() {
