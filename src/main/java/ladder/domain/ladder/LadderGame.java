@@ -4,9 +4,10 @@ import ladder.domain.participant.ParticipantGroup;
 import ladder.domain.result.Result;
 import ladder.domain.result.ResultGroup;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class LadderGame {
     private final ParticipantGroup participantGroup;
@@ -27,12 +28,11 @@ public class LadderGame {
     }
 
     public Map<String, Result> result() {
-        Map<String, Result> resultMatch = new LinkedHashMap<>();
         List<String> names = participantGroup.createNames();
         List<Result> results = resultGroup.changeResult();
-        for (int i = 0; i < participantGroup.getSize(); i++) {
-            resultMatch.put(names.get(i), results.get(i));
-        }
-        return resultMatch;
+
+        return IntStream.range(0, participantGroup.getSize())
+                .boxed()
+                .collect(Collectors.toMap(names::get, results::get));
     }
 }

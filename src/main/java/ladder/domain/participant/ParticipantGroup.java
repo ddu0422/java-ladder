@@ -2,10 +2,11 @@ package ladder.domain.participant;
 
 import ladder.domain.ladder.Direction;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ParticipantGroup {
     private static final int MINIMUM_PARTICIPANT_NUM = 2;
@@ -33,11 +34,9 @@ public class ParticipantGroup {
     }
 
     private List<Participant> generate(List<String> names) {
-        List<Participant> participants = new ArrayList<>();
-        for (int i = 0; i < names.size(); i++) {
-            participants.add(new Participant(names.get(i), new Position(i)));
-        }
-        return participants;
+        return IntStream.range(0, names.size())
+                .mapToObj(i -> new Participant(names.get(i), new Position(i)))
+                .collect(Collectors.toList());
     }
 
     public void move(List<Direction> directions) {
@@ -47,19 +46,15 @@ public class ParticipantGroup {
     }
 
     public List<Integer> createResultPositions() {
-        List<Integer> resultPositions = new ArrayList<>();
-        for (Participant participant : participants) {
-            resultPositions.add(participant.getPosition());
-        }
-        return resultPositions;
+        return participants.stream()
+                .map(Participant::getPosition)
+                .collect(Collectors.toList());
     }
 
     public List<String> createNames() {
-        List<String> names = new ArrayList<>();
-        for (Participant participant : participants) {
-            names.add(participant.getName());
-        }
-        return names;
+        return participants.stream()
+                .map(Participant::getName)
+                .collect(Collectors.toList());
     }
 
     public int getSize() {
