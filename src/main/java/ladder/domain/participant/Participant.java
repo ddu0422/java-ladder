@@ -8,6 +8,7 @@ public class Participant {
     private static final String NAME_LENGTH_ERROR = "참가자 이름은 5자 이하여야합니다.";
     private static final String INVALID_NAME = "all";
     private static final String INVALID_NAME_ERROR = "참가자 이름은 all 이 될 수 없습니다.";
+    private static final int NAME_LENGTH_LIMIT = 5;
 
     private final String name;
     private final Position position;
@@ -20,7 +21,7 @@ public class Participant {
     }
 
     private void checkNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > NAME_LENGTH_LIMIT) {
             throw new InvalidParticipantException(NAME_LENGTH_ERROR);
         }
     }
