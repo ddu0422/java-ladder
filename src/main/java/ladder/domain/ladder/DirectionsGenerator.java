@@ -6,7 +6,7 @@ import ladder.util.RandomGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectionGenerator {
+public class DirectionsGenerator {
     private static final int FIRST_LINE = 0;
 
     public static List<Direction> generate(ParticipantGroup participantGroup) {
