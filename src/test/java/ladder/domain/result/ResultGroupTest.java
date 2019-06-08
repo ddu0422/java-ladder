@@ -27,7 +27,7 @@ public class ResultGroupTest {
 
     @Test
     void 참가자_수와_결과_수가_다른_경우() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidResultGroupException.class, () -> {
             new ResultGroup(participantGroup,
                     Arrays.asList(new Result("꽝"), new Result("1000")));
         });

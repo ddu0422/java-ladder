@@ -21,7 +21,7 @@ public class Direction {
 
     private void checkDirection(boolean hasLeft, boolean hasRight) {
         if (hasLeft && hasRight) {
-            throw new InvalidDirection(DUPLICATED_DIRECTION_ERROR);
+            throw new InvalidDirectionException(DUPLICATED_DIRECTION_ERROR);
         }
     }
 

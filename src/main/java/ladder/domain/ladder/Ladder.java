@@ -16,7 +16,7 @@ public class Ladder {
 
     private void checkHeight(int height) {
         if (height < MINIMUM_HEIGHT) {
-            throw new InvalidLadder(MINIMUM_HEIGHT_ERROR);
+            throw new InvalidLadderException(MINIMUM_HEIGHT_ERROR);
         }
     }
 

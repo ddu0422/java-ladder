@@ -18,7 +18,7 @@ public class ResultGroup {
 
     private void checkResultsSize(ParticipantGroup positionGroup, List<Result> results) {
         if (positionGroup.getSize() != results.size()) {
-            throw new InvalidResultGroup(NOT_MATCH_RESULTS_SIZE_ERROR);
+            throw new InvalidResultGroupException(NOT_MATCH_RESULTS_SIZE_ERROR);
         }
     }
 

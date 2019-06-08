@@ -22,13 +22,13 @@ public class ParticipantGroup {
 
     private void checkMinimumParticipants(List<String> names) {
         if (names.size() < MINIMUM_PARTICIPANT_NUM) {
-            throw new InvalidParticipantGroup(MINIMUM_PARTICIPANT_NUM_ERROR);
+            throw new InvalidParticipantGroupException(MINIMUM_PARTICIPANT_NUM_ERROR);
         }
     }
 
     private void checkDuplicatedParticipant(List<String> names) {
         if (names.size() != new HashSet<>(names).size()) {
-            throw new InvalidParticipantGroup(DUPLICATE_PARTICIPANT_NAME);
+            throw new InvalidParticipantGroupException(DUPLICATE_PARTICIPANT_NAME);
         }
     }
 

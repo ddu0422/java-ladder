@@ -21,13 +21,13 @@ public class Participant {
 
     private void checkNameLength(String name) {
         if (name.length() > 5) {
-            throw new InvalidParticipant(NAME_LENGTH_ERROR);
+            throw new InvalidParticipantException(NAME_LENGTH_ERROR);
         }
     }
 
     private void checkForbidName(String name) {
         if (name.toLowerCase().equals(INVALID_NAME)) {
-            throw new InvalidParticipant(INVALID_NAME_ERROR);
+            throw new InvalidParticipantException(INVALID_NAME_ERROR);
         }
     }
 
