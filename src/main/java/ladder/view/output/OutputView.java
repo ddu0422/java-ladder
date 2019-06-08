@@ -14,6 +14,10 @@ public class OutputView {
         for (Participant participant : participantGroup.getParticipants()) {
             System.out.printf("%-6s", participant);
         }
+        emptyLine();
+    }
+
+    private static void emptyLine() {
         System.out.println();
     }
 
@@ -27,7 +31,7 @@ public class OutputView {
         for (Result result : resultGroup.getResults()) {
             System.out.printf("%-6s", result);
         }
-        System.out.println();
+        emptyLine();
     }
 
     public static void outputResult(String name, Map<String, Result> result) {
