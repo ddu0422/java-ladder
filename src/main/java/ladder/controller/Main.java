@@ -3,6 +3,7 @@ package ladder.controller;
 import ladder.domain.ladder.Ladder;
 import ladder.domain.ladder.LadderGame;
 import ladder.domain.ladder.LadderGenerator;
+import ladder.domain.participant.Participant;
 import ladder.domain.participant.ParticipantGroup;
 import ladder.domain.result.ResultGenerator;
 import ladder.domain.result.ResultGroup;
@@ -29,7 +30,7 @@ public class Main {
         do {
             name = InputView.inputParticipant();
             OutputView.outputResult(name, ladderGame.result());
-        } while (!name.equals("all"));
+        } while (!name.equals(Participant.ALL_PLAYER));
     }
 
     private static ParticipantGroup createParticipantGroup() {
